@@ -54,6 +54,7 @@ class CountDown extends React.Component {
     timeLabelStyle: PropTypes.object,
     separatorStyle: PropTypes.object,
     timeToShow: PropTypes.array,
+    disableHoursLimit: PropTypes.bool,
     showSeparator: PropTypes.bool,
     size: PropTypes.number,
     until: PropTypes.number,
@@ -115,6 +116,7 @@ class CountDown extends React.Component {
 
   getTimeLeft = () => {
     const {until} = this.state;
+    const {disableHoursLimit} = this.props;
     return {
       seconds: until % 60,
       minutes: parseInt(until / 60, 10) % 60,
